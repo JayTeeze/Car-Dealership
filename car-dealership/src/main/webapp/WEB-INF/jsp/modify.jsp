@@ -27,7 +27,7 @@
     		<a class="nav-link" href="/inventory">Inventory</a>
   		</li>
   		<li class="nav-item">
-    		<a class="nav-link" href="#">Modify Inventory</a>
+    		<a class="nav-link" href="/modifyInventory">Modify Inventory</a>
   		</li>
   		<li class="nav-item">
     		<a class="nav-link" href="#">Transactions</a>
@@ -45,16 +45,27 @@
 			<tr>
 				<th class="text-center" scope="col" style="width: 10%">#</th>
 				<th class="text-center" scope="col">Overview</th>
+				<th class="text-center" scope="col" style="white-space: nowrap; width: 1%"></th>
 			</tr>
 		</thead>
 		<tbody>
-
+		
+			
 			<c:forEach items="${inventory}" var="transaction" varStatus="loop">
 				<tr>
-					<th scope="row">${loop.count}</th>
-					<td>${inventory.car.getOverview}</td>
+					<th class="text-center" scope="row">${loop.count}</th>
+					<td class="text-center">${transaction.car.getOverview()}</td>
+					<td>
+					<div class="btn-group" role="group">
+						<a class="btn btn-outline-primary btn-sm" href="/modifyInventory/edit?transactionId=${transaction.id}">Edit</a>
+						<a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${transaction.id}">Delete</a>
+		              	
+		            </div>
+		            </td>
+		        </tr>
 				</tr>
 			</c:forEach>
+			
 			
 		</tbody>
 	</table>

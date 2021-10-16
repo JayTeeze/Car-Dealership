@@ -8,10 +8,11 @@ public class Car {
 	private String model;
 	private int price;
 	private String description;
+	private int mileage;
 	
 	public Car() {};
 	
-	public Car(String ownership, int year, String color, String make, String model, int price, String description) {
+	public Car(String ownership, int year, String color, String make, String model, int price, String description, int mileage) {
 		this.ownership = ownership;
 		this.year = year;
 		this.color = color;
@@ -19,6 +20,7 @@ public class Car {
 		this.model = model;
 		this.price = price;
 		this.description = description;
+		this.mileage = mileage;
 	}
 
 	public String getOwnership() {
@@ -77,6 +79,14 @@ public class Car {
 		this.description = description;
 	}
 	
+	public int getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
+	}
+
 	public String getOverview() {
 		return ownership + " " + year + " " + make + " " + model;
 	}

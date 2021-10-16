@@ -27,7 +27,7 @@
     		<a class="nav-link" href="/inventory">Inventory</a>
   		</li>
   		<li class="nav-item">
-    		<a class="nav-link" href="#">Modify Inventory</a>
+    		<a class="nav-link" href="/modifyInventory">Modify Inventory</a>
   		</li>
   		<li class="nav-item">
     		<a class="nav-link" href="#">Transactions</a>

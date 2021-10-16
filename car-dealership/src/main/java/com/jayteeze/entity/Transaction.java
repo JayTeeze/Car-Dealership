@@ -1,6 +1,7 @@
 package com.jayteeze.entity;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public class Transaction {
 	private int id;
@@ -58,5 +59,21 @@ public class Transaction {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
+	public static Comparator<Transaction> AcqiuredDate = new Comparator<Transaction>() {
+		public int compare(Transaction t1, Transaction t2) {
+			LocalDate date1 = t1.getAcquireDate();
+			LocalDate date2 = t2.getAcquireDate();
+			return date2.compareTo(date1);
+		}
+	};
+	
+	public static Comparator<Transaction> SellDate = new Comparator<Transaction>() {
+		public int compare(Transaction t1, Transaction t2) {
+			LocalDate date1 = t1.getAcquireDate();
+			LocalDate date2 = t2.getAcquireDate();
+			return date2.compareTo(date1);
+		}
+	};
 	
 }
