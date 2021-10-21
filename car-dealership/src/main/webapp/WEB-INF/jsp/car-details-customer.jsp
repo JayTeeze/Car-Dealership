@@ -25,8 +25,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		  <div class="navbar-nav">
-			<a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
-			<a class="nav-item nav-link" href="/inventory">Inventory</a>
+			<a class="nav-item nav-link" href="/">Home</a>
+			<a class="nav-item nav-link active" href="/inventory">Inventory<span class="sr-only">(current)</span></a>
 			<a class="nav-item nav-link" href="/modifyInventory">Modify Inventory</a>
 			<a class="nav-item nav-link" href="/allTransactions">Transactions</a>
 		  </div>
@@ -35,9 +35,43 @@
 	
 	<div class="container">
     	<div class="row justify-content-center">
-      		<h3>Welcome to Premium Auto!</h3>
+      		<h5>Details</h5>
     	</div>
  	</div>
+ 	
+ 	<div class="container">
+		<div class="row">
+	    	<div class="col">
+	
+	    	</div>
+      		<div class="col">
+      			<c:if test = "${selectedCar.daysOnLot > 120}">
+      				<p><b>Deal Alert!</b></p>
+      				<p>Price: <del>$${selectedCar.originalPrice}</del> $${selectedCar.discountPrice}</p>
+      				<a type="button" href="/purchase?transactionId=${selectedCar.id}" class="btn btn-outline-success btn-sm">Bid</a>
+      			</c:if>
+      			
+      			<c:if test = "${selectedCar.daysOnLot <= 120}">
+      				<p>Price: $${selectedCar.originalPrice}</p>
+      				<a type="button" href="/purchase?transactionId=${selectedCar.id}" class="btn btn-outline-success btn-sm">Purchase</a>
+      			</c:if>
+      			
+        		<p>${selectedCar.ownership}</p>
+	        	<p>Year: ${selectedCar.year}</p>
+	        	<p>Make: ${selectedCar.make}</p>
+	        	<p>Model: ${selectedCar.model}</p>
+	        	<p>Color: ${selectedCar.color}</p>
+	        	<p>Mileage: ${selectedCar.mileage}</p>
+	      	</div>
+    	</div>
+	    
+	    <div class="row">
+      		<div class="col" align="center">
+	        	<h6>Description</h6>
+	        	<p>${selectedCar.description}</p>
+     	 	</div>
+	    </div>
+  	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

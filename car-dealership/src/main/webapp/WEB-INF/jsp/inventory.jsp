@@ -19,26 +19,40 @@
 </head>
 <body>
 
-	<ul class="nav justify-content-center">
-  		<li class="nav-item">
-    		<a class="nav-link active" href="/">Home</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="/inventory">Inventory</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="/modifyInventory">Modify Inventory</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="#">Transactions</a>
-  		</li>
-	</ul>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link" href="/">Home</a>
+			<a class="nav-item nav-link active" href="/inventory">Inventory<span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="/modifyInventory">Modify Inventory</a>
+			<a class="nav-item nav-link" href="/allTransactions">Transactions</a>
+		  </div>
+		</div>
+	</nav>
 	
 	<div class="container">
     	<div class="row justify-content-center">
       		<h3>Inventory</h3>
     	</div>
  	</div>
+ 	
+	<div class="container">
+		<div class="row">
+	   		<div class="col-4">
+		   		<form action="/inventory/findByKeyword">
+			   		<div class="input-group mb-1">
+				   		<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Search for car i.e. 'Civic' 'Toyota'..">
+					   	<div class="input-group-append">
+						 	<button type="submit" class="btn btn-outline-dark">Search</button>
+					   	</div>
+				 	</div>
+			 	</form>
+	   		</div>
+		</div>
+	</div>
  	
  	<table class="table table-hover">
 		<thead>
@@ -48,11 +62,14 @@
 			</tr>
 		</thead>
 		<tbody>
-
+		
 			<c:forEach items="${inventory}" var="transaction" varStatus="loop">
 				<tr>
 					<th class="text-center" scope="row">${loop.count}</th>
-					<td class="text-center">${transaction.car.getOverview()}</td>
+					<td class="text-center">
+						<img src="/images/id1image1.jpg" alt="Car Image" style="width:600px;height:400px"/>
+						<a href="/inventory/details?transactionId=${transaction.id}">${transaction.getOverview()}</a>
+					</td>
 				</tr>
 			</c:forEach>
 			
