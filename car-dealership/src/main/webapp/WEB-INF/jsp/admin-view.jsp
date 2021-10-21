@@ -19,20 +19,19 @@
 </head>
 <body>
 
-	<ul class="nav justify-content-center">
-  		<li class="nav-item">
-    		<a class="nav-link active" href="/">Home</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="/inventory">Inventory</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="/modifyInventory">Modify Inventory</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" href="#">Transactions</a>
-  		</li>
-	</ul>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link" href="/">Home</a>
+			<a class="nav-item nav-link" href="/inventory">Inventory</a>
+			<a class="nav-item nav-link active" href="/modifyInventory">Modify Inventory<span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="/allTransactions">Transactions</a>
+		  </div>
+		</div>
+	</nav>
 	
 	<div class="container">
     	<div class="row justify-content-center">
@@ -43,27 +42,27 @@
  	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th class="text-center" scope="col" style="width: 10%">#</th>
-				<th class="text-center" scope="col">Overview</th>
-				<th class="text-center" scope="col" style="white-space: nowrap; width: 1%"></th>
+				<th class="text-center" scope="col" style="white-space: nowrap; width: 1%">Transaction ID#</th>
+				<th class="text-center" scope="col">Details</th>
+				<th class="text-center" scope="col" style="white-space: nowrap; width: 1%">
+					<a class="btn btn-outline-success btn-sm" href="/modifyInventory/add">Add New Car</a>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
 		
 			
-			<c:forEach items="${inventory}" var="transaction" varStatus="loop">
+			<c:forEach items="${inventory}" var="transaction">
 				<tr>
-					<th class="text-center" scope="row">${loop.count}</th>
-					<td class="text-center">${transaction.car.getOverview()}</td>
+					<th class="text-center" scope="row">${transaction.id}</th>
+					<td class="text-center">${transaction.getDetails()}</td>
 					<td>
 					<div class="btn-group" role="group">
-						<a class="btn btn-outline-primary btn-sm" href="/modifyInventory/edit?transactionId=${transaction.id}">Edit</a>
+						<a class="btn btn-outline-dark btn-sm" href="/modifyInventory/edit?transactionId=${transaction.id}">Edit</a>
 						<a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${transaction.id}">Delete</a>
-		              	
 		            </div>
 		            </td>
 		        </tr>
-				</tr>
 			</c:forEach>
 			
 			

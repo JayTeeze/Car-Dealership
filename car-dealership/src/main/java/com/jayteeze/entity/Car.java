@@ -6,19 +6,21 @@ public class Car {
 	private String color;
 	private String make;
 	private String model;
-	private int price;
+	private double originalPrice;
 	private String description;
 	private int mileage;
+	private double discountPrice;
+	private boolean isOnSale = false;
 	
 	public Car() {};
 	
-	public Car(String ownership, int year, String color, String make, String model, int price, String description, int mileage) {
+	public Car(String ownership, int year, String color, String make, String model, double originalPrice, String description, int mileage) {
 		this.ownership = ownership;
 		this.year = year;
 		this.color = color;
 		this.make = make;
 		this.model = model;
-		this.price = price;
+		this.originalPrice = originalPrice;
 		this.description = description;
 		this.mileage = mileage;
 	}
@@ -44,7 +46,11 @@ public class Car {
 	}
 	
 	public void setColor(String color) {
-		this.color = color;
+		if (!color.isEmpty()) {
+			this.color = capitalCase(color);
+		} else {
+			this.color = color;
+		}
 	}
 	
 	public String getMake() {
@@ -52,7 +58,11 @@ public class Car {
 	}
 	
 	public void setMake(String make) {
-		this.make = make;
+		if (!make.isEmpty()) {
+			this.make = capitalCase(make);
+		} else {
+			this.make = make;
+		}
 	}
 	
 	public String getModel() {
@@ -60,15 +70,19 @@ public class Car {
 	}
 	
 	public void setModel(String model) {
-		this.model = model;
+		if (!model.isEmpty()) {
+			this.model = capitalCase(model);
+		} else {
+			this.model = model;
+		}
 	}
 	
-	public int getPrice() {
-		return price;
+	public double getOriginalPrice() {
+		return originalPrice;
 	}
 	
-	public void setPrice(int price) {
-		this.price = price;
+	public void setOriginalPrice(double originalPrice) {
+		this.originalPrice = originalPrice;
 	}
 	
 	public String getDescription() {
@@ -87,8 +101,39 @@ public class Car {
 		this.mileage = mileage;
 	}
 
+	public double getDiscountPrice() {
+		return Double.parseDouble(String.format("%.2f", discountPrice));
+	}
+
+	public void setDiscountPrice(double discountPrice) {
+		this.discountPrice = discountPrice;
+	}
+
+	public boolean isOnSale() {
+		return isOnSale;
+	}
+
+	public void setOnSale(boolean isOnSale) {
+		this.isOnSale = isOnSale;
+	}
+
 	public String getOverview() {
 		return ownership + " " + year + " " + make + " " + model;
+	}
+	
+	public String getDetails() {
+		return ownership + " " + year + " " + color + " " + make + " " + model + " " + mileage + " miles $" + originalPrice + " description: " + description;
+	}
+	
+	private String capitalCase(String word) {
+		String[] words = word.split(" ");
+		word = "";
+		
+		for (int i = 0; i < words.length; i++) {
+			words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
+			word += words[i] + " ";
+		}
+		return word.trim();
 	}
 	
 }

@@ -15,7 +15,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<title>Home</title>
+<title>Application Process</title>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		  <div class="navbar-nav">
-			<a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="/">Home<span class="sr-only">(current)</span></a>
 			<a class="nav-item nav-link" href="/inventory">Inventory</a>
 			<a class="nav-item nav-link" href="/modifyInventory">Modify Inventory</a>
 			<a class="nav-item nav-link" href="/allTransactions">Transactions</a>
@@ -34,9 +34,20 @@
 	</nav>
 	
 	<div class="container">
-    	<div class="row justify-content-center">
-      		<h3>Welcome to Premium Auto!</h3>
+    	<div class="row">
+      		<div class="col-6 text-center">
+				<h5>${selectedCar.make} ${selectedCar.model}, great choice!</h5>
+			</div>
     	</div>
+		<div class="row">
+			<div class="col-6 offset-6 text-center">
+				<h5>Please contact us to start the purchase process.</h5>
+				<h6>123 Main St</h6>
+				<h6>Pasadena, CA 91105</h6>
+				<h6>(800) 920-9882</h6>
+				<h6>sales@premiumauto.com</h6>
+			</div>
+		</div>
  	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -25,19 +25,46 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		  <div class="navbar-nav">
-			<a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="/">Home</a>
 			<a class="nav-item nav-link" href="/inventory">Inventory</a>
 			<a class="nav-item nav-link" href="/modifyInventory">Modify Inventory</a>
-			<a class="nav-item nav-link" href="/allTransactions">Transactions</a>
+			<a class="nav-item nav-link active" href="/allTransactions">Transactions<span class="sr-only">(current)</span></a>
 		  </div>
 		</div>
 	</nav>
 	
 	<div class="container">
     	<div class="row justify-content-center">
-      		<h3>Welcome to Premium Auto!</h3>
+      		<h5>All Transactions</h5>
     	</div>
  	</div>
+ 	
+	<table class="table table-bordered">
+  		<thead>
+	    	<tr>
+	      		<th class="text-center" scope="col">#</th>
+	      		<th class="text-center" scope="col">Date Acquired</th>
+	      		<th class="text-center" scope="col">Sold?</th>
+	      		<th class="text-center" scope="col">Date Sold</th>
+	      		<th class="text-center" scope="col">Vehicle</th>
+	      		<th class="text-center" scope="col">Buyer Information</th>
+	    	</tr>
+  		</thead>
+  		<tbody>
+  		
+  			<c:forEach items="${inventory}" var="transaction" varStatus="loop">
+				<tr>
+					<th class="text-center" scope="row">${loop.count}</th>
+					<td class="text-center">${transaction.acquireDate}</td>
+					<td class="text-center">${transaction.isSold}</td>
+					<td class="text-center">${transaction.soldDate}</td>
+					<td class="text-center">${transaction.getOverview()}</td>
+					<td class="text-center">${transaction.buyer.getFullName()}</td>
+				</tr>
+			</c:forEach>
+			
+  		</tbody>
+	</table>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
