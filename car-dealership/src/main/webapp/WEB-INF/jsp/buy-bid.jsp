@@ -33,19 +33,21 @@
 		</div>
 	</nav>
 	
-	<div class="container">
+	<div class="container-fluid">
     	<div class="row">
-      		<div class="col-6 text-center">
+      		<div class="col-8 text-center">
+      			<img src="${selectedCar.imgPath}" alt="Car Image" style="width:500px"/>
 				<h5>${selectedCar.make} ${selectedCar.model}, great choice!</h5>
 			</div>
     	</div>
 		<div class="row">
-			<div class="col-6 offset-6 text-center">
+			<div class="col-8 offset-4 text-center">
 				<h5>Please contact us to start the purchase process.</h5>
 				<h6>123 Main St</h6>
 				<h6>Pasadena, CA 91105</h6>
 				<h6>(800) 920-9882</h6>
 				<h6>sales@premiumauto.com</h6>
+				<img src="images/signanddrive.jpg" alt="Great deal" style="width:500px; border-radius: 5px"/>
 			</div>
 		</div>
  	</div>

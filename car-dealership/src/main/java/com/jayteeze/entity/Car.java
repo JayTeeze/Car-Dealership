@@ -11,10 +11,11 @@ public class Car {
 	private int mileage;
 	private double discountPrice;
 	private boolean isOnSale = false;
+	private String imgPath;
 	
 	public Car() {};
 	
-	public Car(String ownership, int year, String color, String make, String model, double originalPrice, String description, int mileage) {
+	public Car(String ownership, int year, String color, String make, String model, double originalPrice, String description, int mileage, String imgPath) {
 		this.ownership = ownership;
 		this.year = year;
 		this.color = color;
@@ -23,6 +24,7 @@ public class Car {
 		this.originalPrice = originalPrice;
 		this.description = description;
 		this.mileage = mileage;
+		this.imgPath = imgPath;
 	}
 
 	public String getOwnership() {
@@ -115,6 +117,14 @@ public class Car {
 
 	public void setOnSale(boolean isOnSale) {
 		this.isOnSale = isOnSale;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
 	}
 
 	public String getOverview() {

@@ -16,6 +16,11 @@
 	crossorigin="anonymous">
 
 <title>Inventory</title>
+<style>
+.carData{
+ color: black;
+}
+</style>
 </head>
 <body>
 
@@ -44,7 +49,7 @@
 	   		<div class="col-4">
 		   		<form action="/inventory/findByKeyword">
 			   		<div class="input-group mb-1">
-				   		<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Search for car i.e. 'Civic' 'Toyota'..">
+				   		<input type="text" class="form-control" id="keyword" name="keyword" maxlength="50" placeholder="Search for car i.e. 'Civic' 'Toyota'..">
 					   	<div class="input-group-append">
 						 	<button type="submit" class="btn btn-outline-dark">Search</button>
 					   	</div>
@@ -67,8 +72,8 @@
 				<tr>
 					<th class="text-center" scope="row">${loop.count}</th>
 					<td class="text-center">
-						<img src="/images/id1image1.jpg" alt="Car Image" style="width:600px;height:400px"/>
-						<a href="/inventory/details?transactionId=${transaction.id}">${transaction.getOverview()}</a>
+						<a href="/inventory/details?transactionId=${transaction.id}"><img src="${transaction.imgPath}" alt="Car Image" style="width:500px"/></a><br>
+						<a class="carData" href="/inventory/details?transactionId=${transaction.id}">${transaction.getOverview()}</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -42,7 +42,7 @@
  	<div class="container">
 		<div class="row">
 	    	<div class="col">
-	
+				<img src="../${selectedCar.imgPath}" alt="Car Image" style="width:600px"/>
 	    	</div>
       		<div class="col">
       			<c:if test = "${selectedCar.daysOnLot > 120}">

@@ -38,6 +38,33 @@
       		<h3>Welcome to Premium Auto!</h3>
     	</div>
  	</div>
+ 	
+ 	<div class="container">
+ 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+		  <div class="carousel-inner">
+		  
+		  <c:forEach items="${carsForSale}" var="car" varStatus="loop">
+		    <div class="carousel-item">
+		      
+		      	<img class="d-block w-100" src="${car.imgPath}" alt="Slide ${loop.count}"/>
+		    </div>
+		    </c:forEach>
+		    
+		    <div class="carousel-item active">
+		    	<img class="d-block w-100" src="images/dealership.jpg" alt="Starter slide"/>
+		    </div>
+		    
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+ 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

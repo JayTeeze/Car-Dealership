@@ -52,14 +52,14 @@
 		<tbody>
 		
 			
-			<c:forEach items="${inventory}" var="transaction">
+			<c:forEach items="${inventory}" var="car">
 				<tr>
-					<th class="text-center" scope="row">${transaction.id}</th>
-					<td class="text-center">${transaction.getDetails()}</td>
+					<th class="text-center" scope="row">${car.id}</th>
+					<td class="text-center">${car.getDetails()}</td>
 					<td>
 					<div class="btn-group" role="group">
-						<a class="btn btn-outline-dark btn-sm" href="/modifyInventory/edit?transactionId=${transaction.id}">Edit</a>
-						<a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${transaction.id}">Delete</a>
+						<a class="btn btn-outline-dark btn-sm" href="/modifyInventory/edit?transactionId=${car.id}">Edit</a>
+						<a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${car.id}">Delete</a>
 		            </div>
 		            </td>
 		        </tr>

@@ -66,8 +66,8 @@
 			<label for="inputOwnership">Has car been sold?</label>
               <form:select id="inputOwnership" class="form-control" path="isSold">
                 <option value="${entry.isSold}" selected>Select..</option>
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </form:select>
 			</div>
 
@@ -93,17 +93,17 @@
 
           <div class="form-group col-2">
             <label for="inputYear">Year</label>
-            <form:input type="text" class="form-control" id="inputYear" path="year"/>
+            <form:input type="number" class="form-control" id="inputYear" path="year" maxlength="4"/>
           </div>
 
           <div class="form-group col">
             <label for="inputPrice">Price</label>
-            <form:input type="text" class="form-control" id="inputPrice" path="originalPrice"/>
+            <form:input type="number" class="form-control" id="inputPrice" path="originalPrice"/>
           </div>
 
           <div class="form-group col">
             <label for="inputMileage">Mileage</label>
-            <form:input type="text" class="form-control" id="inputMileage" path="mileage"/>
+            <form:input type="number" class="form-control" id="inputMileage" path="mileage"/>
           </div>
         </div>
 
@@ -149,7 +149,7 @@
 		
 		<div class="form-row">
 	        <div class="col text-center">
-	        	<button type="submit" class="btn btn-primary">Submit</button>
+	        	<button type="submit" class="btn btn-dark btn-sm">Submit</button>
 	        </div>
 	    </div>
         

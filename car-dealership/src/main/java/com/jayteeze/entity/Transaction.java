@@ -14,8 +14,8 @@ public class Transaction extends Car {
 	public Transaction() {};
 	
 	public Transaction(int id, LocalDate acquireDate, String ownership, int year, 
-			String color, String make, String model, int price, String description, int mileage) {
-		super(ownership, year, color, make, model, price, description, mileage);
+			String color, String make, String model, int price, String description, int mileage, String imgPath) {
+		super(ownership, year, color, make, model, price, description, mileage, imgPath);
 		this.id = id;
 		this.acquireDate = acquireDate;
 	}
@@ -67,14 +67,14 @@ public class Transaction extends Car {
 	
 	public String getIsSold() {
 		if (Boolean.valueOf(isSold == true)) {
-			return "yes";
+			return "Yes";
 		} else {
-			return "no";
+			return "No";
 		}
 	}
 
 	public void setIsSold(String isSold) {
-		if (isSold.contains("yes")) {
+		if (isSold.contains("Yes")) {
 			this.isSold = true;
 		} else {
 			this.isSold = false;

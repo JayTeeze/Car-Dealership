@@ -17,9 +17,9 @@ public class InventoryController {
 	InventoryService inventoryService;
 	
 	@GetMapping("/")
-	public String welcome(Model model) {
+	public ModelAndView welcome(Model model) {
 		inventoryService.populateApp();
-		return "home";
+		return new ModelAndView("home", "carsForSale", inventoryService.forSale());
 	}
 	
 	// Displays cars for sale
@@ -39,14 +39,11 @@ public class InventoryController {
 		return new ModelAndView("inventory", "inventory", inventoryService.findByKeyword(keyword));
 	}
 	
-	
 	// Page with options to buy selected car
 	@GetMapping("/purchase")
 	public ModelAndView purchaseCar(Model model, Integer transactionId) {
 		return new ModelAndView("buy-bid", "selectedCar", inventoryService.findById(transactionId));
 	}
-	
-	
 	
 	// Administrative options to modify/add/delete all cars/transactions
 	@GetMapping("/modifyInventory")
