@@ -52,14 +52,40 @@
 		<tbody>
 		
 			
-			<c:forEach items="${inventory}" var="car">
+			<c:forEach items="${inventory}" var="car" varStatus="loop">
 				<tr>
 					<th class="text-center" scope="row">${car.id}</th>
 					<td class="text-center">${car.getDetails()}</td>
 					<td>
 					<div class="btn-group" role="group">
 						<a class="btn btn-outline-dark btn-sm" href="/modifyInventory/edit?transactionId=${car.id}">Edit</a>
-						<a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${car.id}">Delete</a>
+						
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal${loop.count}">
+						  Delete
+						</button>
+						
+						<!-- Modal -->
+						<div class="modal fade" id="modal${loop.count}" tabindex="-1" role="dialog" aria-labelledby="modal${loop.count}Title" aria-hidden="true">
+					  		<div class="modal-dialog modal-dialog-centered" role="document">
+						    	<div class="modal-content">
+						      		<div class="modal-header">
+						        	<h5 class="modal-title" id="modal${loop.count}Title">Confirmation</h5>
+							        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          	<span aria-hidden="true">&times;</span>
+							        	</button>
+					      			</div>
+							      	<div class="modal-body">
+							      		<p>Are you sure you want to delete this entry?</p>
+							      	</div>
+							      	<div class="modal-footer">
+								        <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Close</button>
+								        <a class="btn btn-outline-danger btn-sm" href="/modifyInventory/delete?transactionId=${car.id}">Delete</a>
+						      		</div>
+					    		</div>
+						  	</div>
+						</div>
+						
 		            </div>
 		            </td>
 		        </tr>
